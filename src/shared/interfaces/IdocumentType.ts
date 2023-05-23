@@ -1,3 +1,3 @@
 export interface IDocumentType {
-  name: string;
+    name: string;
 }

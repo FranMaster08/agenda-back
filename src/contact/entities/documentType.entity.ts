@@ -3,12 +3,12 @@ import { Contacts } from './contacts.entity';
 
 @Entity('document_type', { schema: 'agenda' })
 export class DocumentType {
-  @PrimaryGeneratedColumn({ type: 'int', name: 'id' })
-  id: number;
+    @PrimaryGeneratedColumn({ type: 'int', name: 'id' })
+    id: number;
 
-  @Column('varchar', { name: 'name', length: 20 })
-  name: string;
+    @Column('varchar', { name: 'name', length: 20 })
+    name: string;
 
-  @OneToMany(() => Contacts, (contacts) => contacts.documentType)
-  contacts: Contacts[];
+    @OneToMany(() => Contacts, (contacts) => contacts.documentType)
+    contacts: Contacts[];
 }

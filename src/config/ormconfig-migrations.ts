@@ -8,20 +8,20 @@ envconf();
 import { readdirSync } from 'fs';
 
 export const configDatasource: DataSourceOptions & SeederOptions = {
-  type: 'mysql',
-  host: process.env.DB_HOST || 'db',
-  port: parseInt(process.env.DB_PORT),
-  username: process.env.DB_USER || 'fran',
-  password: process.env.DB_PASSWORD || 'passWord',
-  database: process.env.DB_DATABASE || 'agenda',
-  entities: [`${__dirname}/../**/**/*.entity{.ts,.js}`],
-  migrations: readdirSync(path.join(__dirname, '../migration')).map(
-    (item) => `${path.join(__dirname, `../migration/${item}`)}`,
-  ),
-  migrationsTableName: 'migrations',
-  logging: false,
-  synchronize: true,
-  seeds: [MainSeeder],
+    type: 'mysql',
+    host: process.env.DB_HOST,
+    port: parseInt(process.env.DB_PORT),
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    entities: [`${__dirname}/../**/**/*.entity{.ts,.js}`],
+    migrations: readdirSync(path.join(__dirname, '../migration')).map(
+        (item) => `${path.join(__dirname, `../migration/${item}`)}`,
+    ),
+    migrationsTableName: 'migrations',
+    logging: false,
+    synchronize: true,
+    seeds: [MainSeeder],
 };
 
 export const datasource = new DataSource(configDatasource);
