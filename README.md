@@ -1,73 +1,63 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# API de Contactos - Documentación
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+¡Bienvenido al repositorio de la API de Contactos de Francisco Javier Jimenez Cohen! En esta documentación encontrarás información sobre la API y las tecnologías utilizadas en el desarrollo de este proyecto.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Descripción de la API
 
-## Description
+La API de Contactos es una aplicación que permite gestionar contactos, incluyendo información personal, números de teléfono y direcciones. Proporciona operaciones para crear, obtener, buscar, editar y eliminar contactos.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Tecnologías utilizadas
 
-## Installation
+- NestJS
+- TypeORM
+- MySQL
+- Docker
+- Swagger
 
-```bash
-$ npm install
+## Configuración del entorno
+
+Antes de comenzar a utilizar la API de Contactos, asegúrate de tener las siguientes configuraciones en tu entorno de desarrollo:
+
+- Archivo `.env`: Crea un archivo `.env` en la raíz del proyecto y define las siguientes variables de entorno:
+
+```
+DB_HOST
+DB_PORT=3306
+DB_USERNAME
+DB_PASSWORD
+DB_DATABASE
+PORT=3000
+MYSQL_ROOT_PASSWORD
+MYSQL_PASSWORD
+MYSQL_DATABASE=agenda
+MYSQL_USER=fran
 ```
 
-## Running the app
+Asegúrate de proporcionar los valores adecuados para cada variable de entorno, como el host de la base de datos, el puerto, el nombre de usuario y la contraseña.
 
-```bash
-# development
-$ npm run start
+## Inicio del proyecto
 
-# watch mode
-$ npm run start:dev
+Para comenzar a utilizar la API de Contactos, sigue los siguientes pasos:
 
-# production mode
-$ npm run start:prod
-```
+1. Asegúrate de tener Docker instalado en tu sistema.
+2. Abre una terminal en la raíz del proyecto.
+3. Ejecuta el siguiente comando: `docker-compose up`.
 
-## Test
+Esto iniciará el proyecto y configurará el entorno de desarrollo necesario, incluyendo la base de datos MySQL.
 
-```bash
-# unit tests
-$ npm run test
+Una vez que el proyecto esté en ejecución, podrás acceder a la API a través de la siguiente dirección: `http://localhost:{puerto}/api`, donde `{puerto}` es el valor especificado en el archivo `.env` para la variable `PORT`.
 
-# e2e tests
-$ npm run test:e2e
+## Endpoints
 
-# test coverage
-$ npm run test:cov
-```
+La API de Contactos expone los siguientes endpoints:
 
-## Support
+- **POST /contact**: Crea un nuevo contacto.
+- **GET /contact/email/{email}**: Obtiene un contacto por su dirección de correo electrónico.
+- **GET /contact/search?searchTerm={searchTerm}**: Busca contactos por término de búsqueda.
+- **GET /contact/phone/{phoneNumber}**: Obtiene un contacto por número de teléfono.
+- **PUT /contact/{contactId}**: Actualiza los datos de un contacto existente.
+- **DELETE /contact/{contactId}**: Elimina un contacto.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Recuerda reemplazar `{email}`, `{searchTerm}`, `{phoneNumber}` y `{contactId}` con los valores adecuados en las URL de los endpoints.
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+¡Gracias por visitar este repositorio! Si tienes alguna pregunta o necesitas más detalles sobre el funcionamiento de la API, no dudes en consultarlo en la sección correspondiente.
